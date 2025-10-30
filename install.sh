@@ -64,12 +64,8 @@ $aur_helper -Syy --needed --devel --noconfirm "${PACKAGES[@]}" || true
 echo "Stowing!..."
 STOW_ROOT_DIR="$INSTALL_DIR/cfg"
 cd "$STOW_ROOT_DIR"
-for package in */; do
-    package_name="${package%/}"
-    echo "   -Stowing $package_name..."
-    stow -t "$HOME" -Rv --adopt "$package_name"
-done
-
+stow -t "$HOME" -Rv --adopt .
+cd ..
 
 echo "Installing zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
