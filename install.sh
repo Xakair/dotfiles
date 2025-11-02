@@ -10,6 +10,7 @@ CFG_DIR="$INSTALL_DIR/cfg"
 PACKAGES=(
     sway
     swaybg
+    autotiling-rs
     ghostty
     nvim
     helium-browser
@@ -19,6 +20,9 @@ PACKAGES=(
     kanshi
     stow
     powertop
+    wl-clipboard
+    cliphist
+    tmux
 )
 
 command_exists () {

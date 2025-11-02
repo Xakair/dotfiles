@@ -1,9 +1,4 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
+for_window [app_id="com.mitchellh.ghostty"] opacity set 0.9
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -21,7 +16,7 @@ set $menu wofi
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/dotfiles/wallpapers/mustacho.png fill
+output * bg ~/dotfiles/wallpapers/zerotwo.jpg fill
 #
 # Example configuration:
 #
@@ -48,15 +43,13 @@ default_border none
 exec autotiling-rs
 exec nm-applet --indicator
 exec kanshi
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 
 bindgesture swipe:4:right workspace prev
 bindgesture swipe:4:left workspace next
 # bindgesture tap:4 exec playerctl play-pause
 
-### Input configuration
-#
-# Example configuration:
-#
   input type:touchpad {
       dwt enabled
       tap enabled
@@ -67,9 +60,12 @@ bindgesture swipe:4:left workspace next
   input type:keyboard {
       xkb_layout "de"
   }
+  # input * xkb_options caps:ralt
+  input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout de
+    xkb_options caps:altgr
+}
 
-# You can also configure each device individually.
-# Read `man 5 sway-input` for more information about this section.
 
 ### Key bindings
 #
@@ -217,8 +213,8 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
     bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
     # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
+    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
